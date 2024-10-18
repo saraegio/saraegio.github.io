@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  output: 'export',
+  output: 'standalone',
   images: {
     unoptimized: true,
   },
@@ -10,4 +10,4 @@ const nextConfig = {
   basePath: process.env.NODE_ENV === 'production' ? '/saraegio.github.io' : '',
 }
 
-module.exports = nextConfig
+module.exports = nextConfig;
