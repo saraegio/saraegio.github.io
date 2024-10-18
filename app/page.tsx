@@ -79,7 +79,7 @@ export default function HomePage() {
       </main>
 
       <footer className="bg-black bg-opacity-50 text-center p-4 mt-16">
-        <p>&copy; 2023 Sara & Gio. All rights reserved.</p>
+        <p>&copy; 2024 Sara & Gio. All rights reserved.</p>
       </footer>
     </div>
   );

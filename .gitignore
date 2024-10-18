@@ -1,3 +1,19 @@
 node_modules
 ./node_modules/@next/swc-darwin-x64/next-swc.darwin-x64.node.DS_Store # Ignore .DS_Store files
 .DS_Store
+# Next.js build output
+.next/
+# Dist directory for output
+out/
+# Production build files
+build/
+# Cache directories
+.cache/
+# Misc
+.DS_Store
+# Environment variables
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
