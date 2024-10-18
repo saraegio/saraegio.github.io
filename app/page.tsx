@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import '../styles/globals.css'; // Adjust the path according to your structure
+
 
 const quotes = [
   "Love is not about how many days, months, or years you have been together. Love is about how much you love each other every single day.",
