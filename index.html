@@ -15,7 +15,7 @@
                 <li><a href="#quotes">Quotes</a></li>
                 <li><a href="#videos">Music Videos</a></li>
                 <li><a href="#timeline">Timeline</a></li>
-                <li><a href="#blog">Blog</a></li>
+                <li><a href="#messages">Messages</a></li>
             </ul>
         </nav>
     </header>
@@ -26,6 +26,7 @@
                 <h1>Sara & Gio</h1>
                 <p id="random-quote"></p>
             </div>
+            <div id="random-video"></div>
         </section>
 
         <section id="gallery">
@@ -45,12 +46,17 @@
 
         <section id="timeline">
             <h2>Our Timeline</h2>
-            <!-- Timeline content will go here -->
+            <div class="timeline"></div>
         </section>
 
-        <section id="blog">
-            <h2>Our Blog</h2>
-            <!-- Blog entries will go here -->
+        <section id="messages">
+            <h2>Leave a Message</h2>
+            <form id="message-form">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <textarea id="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+            <div id="message-display"></div>
         </section>
     </main>
 
