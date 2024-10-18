@@ -42,6 +42,13 @@ function setRandomVideo() {
     videoContainer.innerHTML = `<iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
 }
 
+// Function to set random image
+function setRandomImage() {
+    const randomIndex = Math.floor(Math.random() * photos.length);
+    const randomPhoto = photos[randomIndex];
+    document.getElementById('random-image').src = `${basePath}${randomPhoto}`;
+}
+
 // Function to load all quotes
 function loadAllQuotes() {
     const quotesContainer = document.getElementById('all-quotes');
@@ -52,7 +59,6 @@ function loadAllQuotes() {
     });
 }
 
-
 // Function to load photos from the public/photos directory
 function loadPhotos() {
     const photoContainer = document.getElementById('photo-container');
@@ -61,12 +67,10 @@ function loadPhotos() {
     // Initialize an empty array to hold the photo filenames
     const photos = [];
 
-// Loop through the numbers 1 to 98 to generate photo filenames
+    // Loop through the numbers 1 to 98 to generate photo filenames
     for (let i = 1; i <= 98; i++) {
-    photos.push(`photo_${i}.png`);
+        photos.push(`photo_${i}.png`);
     }
-
-// Now the 'photos' array contains filenames from 'photo_1.png' to 'photo_98.png'
 
     // Base path to the photo directory
     const basePath = 'public/photos/';
@@ -78,10 +82,10 @@ function loadPhotos() {
         img.style.maxWidth = '300px';  // Style can be adjusted or managed in CSS
         photoContainer.appendChild(img);
     });
-}
 
-// Load photos when the document content is fully loaded
-document.addEventListener('DOMContentLoaded', loadPhotos);
+    // Set a random image for the home page
+    setRandomImage();
+}
 
 // Timeline events
 const timelineEvents = [
@@ -136,8 +140,8 @@ window.onload = function() {
     setRandomBackground();
     setRandomQuote();
     setRandomVideo();
+    loadPhotos();
     loadAllQuotes();
-    loadRandomPhotos();
     loadTimeline();
 
     // Add event listener for message form submission
