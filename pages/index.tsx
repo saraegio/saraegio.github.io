@@ -1,51 +1,31 @@
-'use client'
+// Use 'use client' only if you're ensuring everything in this component runs in the client-side environment.
+'use client';
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ChevronRight, Menu } from 'lucide-react'
-import '../styles/globals.css'; 
-import Layout from '../components/layout'; // Adjust the import path based on your structure
+import { ChevronRight, Menu } from 'lucide-react';
+import Layout from '../components/layout'; // Ensure the path and case sensitivity are correct.
 
-const HomePage = () => {
-  return (
-    <Layout>
-      <h1>Welcome to Our Website</h1>
-      {/* Page content here */}
-    </Layout>
-  );
-};
-
-export default HomePage;
-
+// Define constants outside of the component if they don't depend on component lifecycle.
 const quotes = [
   "Love is not about how many days, months, or years you have been together. Love is about how much you love each other every single day.",
   "The best thing to hold onto in life is each other.",
-  "I love you not only for what you are, but for what I am when I am with you.",
-  // Add more quotes as needed
+  "I love you not only for what you are, but for what I am when I am with you."
 ];
 
 const videoIds = [
   'dQw4w9WgXcQ',
   'ZbZSe6N_BXs',
-  'JGwWNGJdvx8',
-  // Add more video IDs as needed
+  'JGwWNGJdvx8'
 ];
 
-export default function HomePage() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+const HomePage: React.FC = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [randomQuote, setRandomQuote] = useState('');
   const [randomVideoId, setRandomVideoId] = useState('');
   const [randomImageIndex, setRandomImageIndex] = useState(1);
 
-  const navItems = [
-    { name: 'Home', href: '/' },
-    { name: 'Gallery', href: '#gallery' },
-    { name: 'Quotes', href: '#quotes' },
-    { name: 'Music', href: '#music' },
-    { name: 'Timeline', href: '#videos' },
-    { name: 'Messages', href: '#messages' },
-  ]
   useEffect(() => {
     setRandomQuote(quotes[Math.floor(Math.random() * quotes.length)]);
     setRandomVideoId(videoIds[Math.floor(Math.random() * videoIds.length)]);
@@ -53,7 +33,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
+    <Layout>
       <header className="fixed top-0 left-0 right-0 bg-black bg-opacity-50 p-4 flex justify-between items-center">
         <h1 className="text-2xl font-bold">Sara & Gio</h1>
         <nav>
@@ -96,13 +76,13 @@ export default function HomePage() {
             </div>
           </div>
         </section>
-
-        {/* Other sections (Gallery, Quotes, Videos, Timeline, Messages) can be added here */}
       </main>
 
       <footer className="bg-black bg-opacity-50 text-center p-4 mt-16">
         <p>&copy; 2024 Sara & Gio. All rights reserved.</p>
       </footer>
-    </div>
+    </Layout>
   );
-}
+};
+
+export default HomePage;
