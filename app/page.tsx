@@ -47,8 +47,8 @@ export default function HomePage() {
 
       <main className="pt-16">
         <section id="home" className="min-h-screen flex items-center justify-center">
-          <div className="container mx-auto px-4 flex">
-            <div className="w-2/3 pr-8">
+          <div className="container mx-auto px-4 flex flex-col md:flex-row">
+            <div className="w-full md:w-2/3 pr-0 md:pr-8 mb-8 md:mb-0">
               <div className="bg-black bg-opacity-70 p-6 rounded-lg mb-8">
                 <p className="text-xl italic">{randomQuote}</p>
               </div>
@@ -61,13 +61,13 @@ export default function HomePage() {
                 ></iframe>
               </div>
             </div>
-            <div className="w-1/3">
+            <div className="w-full md:w-1/3">
               <Image 
                 src={`/photos/photo_${randomImageIndex}.png`} 
                 alt="Sara & Gio" 
                 width={400} 
                 height={600} 
-                className="rounded-lg shadow-lg"
+                className="rounded-lg shadow-lg w-full h-auto"
               />
             </div>
           </div>
@@ -76,7 +76,7 @@ export default function HomePage() {
         {/* Other sections (Gallery, Quotes, Videos, Timeline, Messages) can be added here */}
       </main>
 
-      <footer className="bg-black bg-opacity-50 text-center p-4">
+      <footer className="bg-black bg-opacity-50 text-center p-4 mt-16">
         <p>&copy; 2023 Sara & Gio. All rights reserved.</p>
       </footer>
     </div>
