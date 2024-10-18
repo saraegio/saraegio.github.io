@@ -52,29 +52,36 @@ function loadAllQuotes() {
     });
 }
 
-// Array of photo URLs
-const photos = [
-    'https://example.com/photo1.jpg',
-    'https://example.com/photo2.jpg',
-    'https://example.com/photo3.jpg',
-    // Add more photo URLs as needed
-];
 
-// Function to load random photos
-function loadRandomPhotos() {
+// Function to load photos from the public/photos directory
+function loadPhotos() {
     const photoContainer = document.getElementById('photo-container');
     photoContainer.innerHTML = ''; // Clear existing photos
     
-    const shuffledPhotos = [...photos].sort(() => 0.5 - Math.random());
-    const selectedPhotos = shuffledPhotos.slice(0, 6); // Select 6 random photos
+    // Initialize an empty array to hold the photo filenames
+    const photos = [];
+
+// Loop through the numbers 1 to 98 to generate photo filenames
+    for (let i = 1; i <= 98; i++) {
+    photos.push(`photo_${i}.png`);
+    }
+
+// Now the 'photos' array contains filenames from 'photo_1.png' to 'photo_98.png'
+
+    // Base path to the photo directory
+    const basePath = 'public/photos/';
     
-    selectedPhotos.forEach(photoUrl => {
+    photos.forEach(photo => {
         const img = document.createElement('img');
-        img.src = photoUrl;
-        img.alt = 'Sara & Gio';
+        img.src = `${basePath}${photo}`;
+        img.alt = 'Photo in gallery';
+        img.style.maxWidth = '300px';  // Style can be adjusted or managed in CSS
         photoContainer.appendChild(img);
     });
 }
+
+// Load photos when the document content is fully loaded
+document.addEventListener('DOMContentLoaded', loadPhotos);
 
 // Timeline events
 const timelineEvents = [
