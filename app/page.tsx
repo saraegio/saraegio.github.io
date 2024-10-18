@@ -3,7 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import '../styles/globals.css'; // Adjust the path according to your structure
+import { ChevronRight, Menu } from 'lucide-react'
+import '../styles/globals.css'; 
 
 
 const quotes = [
@@ -21,10 +22,19 @@ const videoIds = [
 ];
 
 export default function HomePage() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [randomQuote, setRandomQuote] = useState('');
   const [randomVideoId, setRandomVideoId] = useState('');
   const [randomImageIndex, setRandomImageIndex] = useState(1);
 
+  const navItems = [
+    { name: 'Home', href: '/' },
+    { name: 'Gallery', href: '#gallery' },
+    { name: 'Quotes', href: '#quotes' },
+    { name: 'Music', href: '#music' },
+    { name: 'Timeline', href: '#videos' },
+    { name: 'Messages', href: '#messages' },
+  ]
   useEffect(() => {
     setRandomQuote(quotes[Math.floor(Math.random() * quotes.length)]);
     setRandomVideoId(videoIds[Math.floor(Math.random() * videoIds.length)]);
@@ -37,18 +47,19 @@ export default function HomePage() {
         <h1 className="text-2xl font-bold">Sara & Gio</h1>
         <nav>
           <ul className="flex space-x-4">
-            <li><Link href="#home" className="hover:text-gray-300">Home</Link></li>
-            <li><Link href="#gallery" className="hover:text-gray-300">Gallery</Link></li>
-            <li><Link href="#quotes" className="hover:text-gray-300">Quotes</Link></li>
-            <li><Link href="#videos" className="hover:text-gray-300">Videos</Link></li>
-            <li><Link href="#timeline" className="hover:text-gray-300">Timeline</Link></li>
-            <li><Link href="#messages" className="hover:text-gray-300">Messages</Link></li>
+            {['Home', 'Gallery', 'Quotes', 'Videos', 'Timeline', 'Messages'].map((item, index) => (
+              <li key={index}>
+                <Link href={`#${item.toLowerCase()}`} className="hover:text-gray-300">
+                  {item}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
       </header>
 
       <main className="pt-16">
-        <section id="home" className="min-h-screen flex items-center justify-center">
+        <section id="home" className="flex items-center justify-center">
           <div className="container mx-auto px-4 flex flex-col md:flex-row">
             <div className="w-full md:w-2/3 pr-0 md:pr-8 mb-8 md:mb-0">
               <div className="bg-black bg-opacity-70 p-6 rounded-lg mb-8">
