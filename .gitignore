@@ -1,2 +1,3 @@
 node_modules
-./node_modules/@next/swc-darwin-x64/next-swc.darwin-x64.node
+./node_modules/@next/swc-darwin-x64/next-swc.darwin-x64.node.DS_Store # Ignore .DS_Store files
+.DS_Store
