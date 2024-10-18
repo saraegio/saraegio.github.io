@@ -1,5 +1,5 @@
 // Use 'use client' only if you're ensuring everything in this component runs in the client-side environment.
-'use client';
+//'use client';
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
