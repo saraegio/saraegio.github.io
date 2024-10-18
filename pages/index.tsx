@@ -5,7 +5,18 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronRight, Menu } from 'lucide-react'
 import '../styles/globals.css'; 
+import Layout from '../components/layout'; // Adjust the import path based on your structure
 
+const HomePage = () => {
+  return (
+    <Layout>
+      <h1>Welcome to Our Website</h1>
+      {/* Page content here */}
+    </Layout>
+  );
+};
+
+export default HomePage;
 
 const quotes = [
   "Love is not about how many days, months, or years you have been together. Love is about how much you love each other every single day.",
