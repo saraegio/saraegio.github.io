@@ -1,27 +1,23 @@
+
+
 import { Inter, Roboto } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin'] });
-// Correct the property name from `weights` to `weight`
+// Import CSS to handle custom styles, not for fonts injected by Next.js
+import '../styles/globals.css';
+
+// Load Inter and Roboto fonts with Next.js optimized font loading
+const inter = Inter({ subsets: ['latin'], weight: '400' });
 const roboto = Roboto({ subsets: ['latin'], weight: ['400', '500', '700'] });
 
-export const metadata = {
-  title: 'Sara & Gio',
-  description: 'Fino alla fine del mondo',
-};
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode; }) {
   return (
-    <html lang="en">
-      <head>
-        {/* Injecting the styles for fonts */}
-        <style>{inter.style}</style>
-        <style>{roboto.style}</style>
-      </head>
-      <body className={roboto.className}>{children}</body>
-    </html>
+    <div className={roboto.className}>
+      <style jsx global>{`
+        html, body {
+          font-family: 'Roboto', sans-serif;
+        }
+      `}</style>
+      {children}
+    </div>
   );
 }
