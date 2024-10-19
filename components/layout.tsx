@@ -1,9 +1,8 @@
-import React from 'react';
-import '../styles/globals.css';
 import { Inter, Roboto } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'] });
-const roboto = Roboto({ subsets: ['latin'], weights: ['400', '500', '700'] });
+// Correct the property name from `weights` to `weight`
+const roboto = Roboto({ subsets: ['latin'], weight: ['400', '500', '700'] });
 
 export const metadata = {
   title: 'Sara & Gio',
@@ -18,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Use Next.js Font Optimization instead of manually linking Google Fonts */}
+        {/* Injecting the styles for fonts */}
         <style>{inter.style}</style>
         <style>{roboto.style}</style>
       </head>
