@@ -4,22 +4,22 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
       - name: Install dependencies
-        run: npm ci
+        run: npm ci  # This is cleaner and faster for CI/CD pipelines
       - name: Build
-        run: npm run build
-      - name: Export
-        run: npm run export
-      - name: Deploy
+        run: npm run build  # This now includes the export step
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
