@@ -6,7 +6,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/saraegio.github.io' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? 'https://saraegio.github.io' : '',
   basePath: process.env.NODE_ENV === 'production' ? '/saraegio.github.io' : '',
 }
 
